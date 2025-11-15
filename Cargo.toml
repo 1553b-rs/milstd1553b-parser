@@ -1,0 +1,28 @@
+[package]
+name = "milstd1553b-parser"
+version = "0.1.0"
+edition = "2021"
+description = "A comprehensive Rust parser and encoder for the MIL-STD-1553B (1553B) avionics bus protocol"
+license = "GPL-3.0-only"
+license-file = "LICENSE"
+repository = "https://github.com/1553b-rs/milstd1553b-parser"
+documentation = "https://docs.rs/milstd1553b-parser"
+homepage = "https://github.com/1553b-rs/milstd1553b-parser"
+readme = "./README.md"
+keywords = ["1553b", "milstd", "avionics", "protocol", "parser"]
+categories = ["encoding", "network-programming", "parser-implementations"]
+authors = ["Samet Eraslan <absameteraslan@gmail.com>"]
+
+[dependencies]
+thiserror = "1.0"
+bitfield = "0.15"
+serde = { version = "1.0", features = ["derive"], optional = true }
+serde_json = { version = "1.0", optional = true }
+
+[features]
+default = []
+serde = ["dep:serde", "dep:serde_json"]
+
+[lib]
+name = "milstd1553b_parser"
+path = "src/lib.rs"
